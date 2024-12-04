@@ -21,12 +21,12 @@ from rest_framework.authtoken.views import obtain_auth_token
 from restaurant import views
 
 router = DefaultRouter()
-router.register(r'tables', views.BookingViewSet)
+router.register(r'booking', views.BookingViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('restaurant/', include('restaurant.urls')),  # Include app-level urls
-    path('restaurant/booking/', include(router.urls)),  # Include the router urls for the Booking API
+    path('restaurant/', include(router.urls)),  # Include the router urls for the Booking API
     path('api/', include('djoser.urls')),  # Djoser User API
     path('api/auth/', include('djoser.urls.authtoken')),  # Token authentication
     path('api-token-auth/', obtain_auth_token),
